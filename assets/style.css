@@ -1,0 +1,386 @@
+/* ScribeKeep — static site styles
+   System font stack, semantic light/dark colors, no external dependencies. */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f6f7fb;
+  --fg: #1a1c26;
+  --fg-secondary: #565b6d;
+  --accent: #4952e0;
+  --accent-hover: #3a41c4;
+  --accent-contrast: #ffffff;
+  --border: #e2e4ec;
+  --focus-ring: #4952e0;
+
+  --max-wide: 68rem;
+  --max-narrow: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1117;
+    --surface: #171a24;
+    --fg: #e9eaf2;
+    --fg-secondary: #a4a9bd;
+    --accent: #8b93f5;
+    --accent-hover: #a5acf7;
+    --accent-contrast: #12131c;
+    --border: #2a2e3d;
+    --focus-ring: #8b93f5;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 1.0625rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.375rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header / navigation */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.brand:hover {
+  color: var(--fg);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--fg-secondary);
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  color: var(--fg);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+/* Layout */
+
+.container {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.prose {
+  max-width: var(--max-narrow);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main {
+  display: block;
+}
+
+/* Hero */
+
+.hero {
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  color: var(--fg-secondary);
+  margin: 0 0 1.75rem;
+}
+
+.hero p.lead {
+  max-width: 40rem;
+  margin: 0 auto 1rem;
+  font-size: 1.0625rem;
+  color: var(--fg-secondary);
+}
+
+.hero p.lead.emphasis {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.875rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  color: var(--accent-contrast);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+/* Sections */
+
+section {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+section h2 {
+  font-size: 1.625rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+section > .container > p.section-intro {
+  color: var(--fg-secondary);
+  margin: 0 0 2rem;
+  max-width: 40rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--fg-secondary);
+}
+
+/* Prose content (privacy / support pages) */
+
+.page-header {
+  padding: 3rem 0 1.5rem;
+}
+
+.page-header h1 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.page-header .tagline {
+  font-size: 1.0625rem;
+  margin-bottom: 0;
+}
+
+.effective-date {
+  color: var(--fg-secondary);
+  font-size: 0.9375rem;
+}
+
+.prose-content {
+  padding-bottom: 4rem;
+}
+
+.prose-content h2 {
+  font-size: 1.25rem;
+  margin: 2.25rem 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.prose-content h2:first-child {
+  margin-top: 0;
+}
+
+.prose-content p {
+  margin: 0 0 1rem;
+}
+
+.prose-content ul,
+.prose-content ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose-content li {
+  margin-bottom: 0.375rem;
+}
+
+.prose-content .note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.prose-content .note p:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 0;
+  color: var(--fg-secondary);
+  font-size: 0.9375rem;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  color: var(--fg-secondary);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+@media (max-width: 40rem) {
+  .site-footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
