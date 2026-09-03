@@ -15,10 +15,15 @@ The ScribeKeep iOS application itself lives in a separate, private repository. *
 ## Structure
 
 ```
-index.html          Homepage
-privacy/index.html  Privacy Policy (App Store privacy policy URL)
-support/index.html  Support page (App Store support URL)
-assets/style.css     Shared stylesheet
+index.html                    Homepage
+privacy/index.html            Privacy Policy (App Store privacy policy URL)
+support/index.html            Support page (App Store support URL)
+assets/style.css              Shared stylesheet
+assets/scribekeep-icon-1024.png  Approved master app icon (source)
+assets/scribekeep-icon.png       Web-sized icon (header + homepage)
+assets/favicon-32x32.png         Favicon
+assets/favicon-16x16.png         Favicon
+assets/apple-touch-icon.png      Apple touch icon
 ```
 
 The site is fully static — plain HTML and CSS, no JavaScript frameworks, build tools, or package managers. GitHub Pages serves it directly from the root of the `main` branch.
@@ -35,4 +40,4 @@ Then open http://localhost:8000 in your browser.
 
 ## Icon assets
 
-No approved ScribeKeep app icon currently exists in this repository. The header currently uses a simple text mark ("SK") in place of an icon image. Once an approved icon is available, it can be added under `assets/` and referenced from the header and as a favicon without further layout changes.
+Brand asset: `assets/scribekeep-icon-1024.png` is the approved ScribeKeep master app icon (unmodified). `assets/scribekeep-icon.png`, `assets/favicon-32x32.png`, `assets/favicon-16x16.png`, and `assets/apple-touch-icon.png` are direct resizes of that master, used for the header mark, homepage hero, favicon, and Apple touch icon respectively.
